@@ -20,9 +20,9 @@ minSdkVersion 21
 targetSdkVersion 27
 
 ## Screenshots
-<img src="/Users/kimseongjin/Desktop/NewsReader/screenShots/splash.png" width="230" />
-<img src="/Users/kimseongjin/Desktop/NewsReader/screenShots/news_list.png" width="230" />
-<img src="/Users/kimseongjin/Desktop/NewsReader/screenShots/news_view.png" width="230" />
+<img src="https://github.com/seongjinkime/NewsReader/blob/master/screenShots/splash.png?raw=true" width="230" />
+<img src="https://github.com/seongjinkime/NewsReader/blob/master/screenShots/news_list.png?raw=true" width="230" />
+<img src="https://github.com/seongjinkime/NewsReader/blob/master/screenShots/news_view.png?raw=true" width="230" />
 
 ## Technologies
 * Kotlin
@@ -43,4 +43,4 @@ targetSdkVersion 27
 
 
 ## Demo
-<img src="/Users/kimseongjin/Desktop/NewsReader/screenShots/demo.gif" width="230" />
+<img src="https://github.com/seongjinkime/NewsReader/blob/master/screenShots/demo.gif?raw=true" width="230" />
