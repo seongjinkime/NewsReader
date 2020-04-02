@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NewsReader</string>
+    <string name="app_version">v 1.0</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="splash_feature_latest_news">최신 뉴스를 제공합니다.</string>
+    <string name="splash_feature_keyword">뉴스의 키워드를 알아보세요</string>
+    <string name="splash_use_description">뉴스를 클릭하면 원본 뉴스를\n볼 수 있습니다.</string>
+    <string name="default_news_image_url">https://image.flaticon.com/icons/svg/124/124033.svg</string>
+
+
+</resources>
