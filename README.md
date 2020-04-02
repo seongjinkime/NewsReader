@@ -1,4 +1,4 @@
-![Example screenshot](/https://github.com/seongjinkime/NewsReader/blob/master/app/src/main/res/mipmap-hdpi/ic_rss.png?raw=true)
+![Icon](https://github.com/seongjinkime/NewsReader/blob/master/app/src/main/res/mipmap-hdpi/ic_rss.png?raw=true)
 # News Reader
 > Bring up the latest news from rss
 
