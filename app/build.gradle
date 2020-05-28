@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.myrealtrip.newsreader"
+        applicationId "com.rss.newsreader"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
