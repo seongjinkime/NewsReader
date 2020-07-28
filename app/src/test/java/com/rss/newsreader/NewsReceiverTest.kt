@@ -1,17 +1,17 @@
 package com.rss.newsreader
 
 import com.rss.newsreader.datas.News
-import com.rss.newsreader.utils.NewsApi
+import com.rss.newsreader.utils.NewsCrawler
 import com.rss.newsreader.utils.NewsResultListener
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-class NewsApiTest {
+class NewsReceiverTest {
 
     private lateinit var newsList: ArrayList<News>
-    private lateinit var newsApi: NewsApi
+    private lateinit var newsCrawler: NewsCrawler
     private var resultListener = object : NewsResultListener{
         override suspend fun onSuccess(news: News) {}
         override suspend fun onFail(error: String) {}
@@ -19,7 +19,7 @@ class NewsApiTest {
 
     @Before
     fun setUp(){
-        newsApi = NewsApi(resultListener)
+        newsCrawler = NewsCrawler(resultListener)
         newsList = ArrayList()
         newsList.add(News(link = "http://www.hani.co.kr/arti/society/society_general/935368.html"))
         newsList.add(News(link = "https://biz.chosun.com/site/data/html_dir/2020/04/02/2020040204402.html"))
@@ -41,7 +41,7 @@ class NewsApiTest {
         runBlocking {
             for (newsBasic in newsList) {
                 val news = loadNewsContent(newsBasic)
-                val keywords = newsApi.extractKeyword(news.description)
+                val keywords = newsCrawler.extractKeyword(news.description)
                 println(keywords)
                 Assert.assertTrue(keywords.size >= 3)
             }
@@ -49,8 +49,8 @@ class NewsApiTest {
     }
 
     suspend fun loadNewsContent(news: News): News {
-        val doc = newsApi.loadDocument(news.link)
-        val news = newsApi.createNewsObject(news.index, news.title, news.link, doc)
+        val doc = newsCrawler.loadDocument(news.link)
+        val news = newsCrawler.createNewsObject(news.index, news.title, news.link, doc)
         return news
     }
 

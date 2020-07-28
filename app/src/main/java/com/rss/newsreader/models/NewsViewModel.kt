@@ -7,7 +7,7 @@ import com.rss.newsreader.common.COMPLETE_MSG
 import com.rss.newsreader.datas.News
 import com.rss.newsreader.states.NewsModelState
 import com.rss.newsreader.states.ViewState
-import com.rss.newsreader.utils.NewsApi
+import com.rss.newsreader.utils.NewsCrawler
 
 import com.rss.newsreader.utils.NewsResultListener
 import com.rss.newsreader.utils.RSSApi
@@ -46,7 +46,7 @@ class NewsViewModel: ViewModel() {
     private var newsModel = NewsModel()
         set(value) {
             field = value
-            mutableNewsModel.value = value
+            mutableNewsModel.setValue(value);
         }
 
     /*
@@ -60,15 +60,14 @@ class NewsViewModel: ViewModel() {
         }
     }
 
-    private fun updateModel(model: NewsModel) {
-        newsModel = newsModel.copy(model.state, model.data, model.msg)
-    }
-
     private fun toProgress() {
         val progressModel = NewsModel(NewsModelState.progress)
         updateModel(progressModel)
     }
 
+    private fun updateModel(model: NewsModel) {
+        newsModel = newsModel.copy(model.state, model.data, model.msg)
+    }
     /*
      * (1) Read rss news list from rss api
      * (2) Read all of news by news api
@@ -80,7 +79,7 @@ class NewsViewModel: ViewModel() {
             var rssNewsList = XmlParser.parseRss(rss)
             taskCnt = rssNewsList.size
             initValue()
-            NewsApi(resultListener).readNewsAll(rssNewsList)
+            NewsCrawler(resultListener).crawlingNewsAll(rssNewsList)
         }
     }
 

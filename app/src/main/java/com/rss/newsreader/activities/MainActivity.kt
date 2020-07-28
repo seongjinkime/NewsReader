@@ -1,5 +1,6 @@
 package com.rss.newsreader.activities
 
+import NewsViewActivity
 import android.Manifest
 import android.content.Context
 import android.content.Intent

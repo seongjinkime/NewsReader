@@ -6,7 +6,7 @@ import com.rss.newsreader.common.EXCEPT_CHAR
 import com.rss.newsreader.datas.News
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -18,7 +18,7 @@ import java.util.*
  * Usw Jsoup Library for load html
  * https://jsoup.org/download
  */
-class NewsApi(val newsResultListener: NewsResultListener) {
+class NewsCrawler(val newsResultListener: NewsResultListener) {
 
     fun extractKeyword(content: String): ArrayList<String> {
         var keywords = ArrayList<String>()
@@ -52,8 +52,8 @@ class NewsApi(val newsResultListener: NewsResultListener) {
         return Jsoup.connect(link).method(Connection.Method.GET).get() //https://jsoup.org/download
     }
 
-    private suspend fun readNewsAsync(index: Int, title: String, link: String) {
-        GlobalScope.async(Dispatchers.IO) {
+    private suspend fun crawlNews(index: Int, title: String, link: String) {
+        GlobalScope.launch(Dispatchers.IO) {
             try {
                 val doc = loadDocument(link)
                 var news = createNewsObject(index, title, link, doc)
@@ -68,7 +68,7 @@ class NewsApi(val newsResultListener: NewsResultListener) {
     /*
      * This function read all of news in list
      */
-    suspend fun readNewsAll(newsList: ArrayList<News>) {
-        newsList.forEach { readNewsAsync(it.index, it.title, it.link) }
+    suspend fun crawlingNewsAll(newsList: ArrayList<News>) {
+        newsList.forEach { crawlNews(it.index, it.title, it.link) }
     }
 }
