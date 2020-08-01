@@ -1,4 +1,4 @@
-![Example screenshot](https://github.com/seongjinkime/NewsReader/blob/master/screenShots/demo.gif?raw=true)
+![Example screenshot](https://github.com/seongjinkime/NewsReader/blob/master/app/src/main/res/mipmap-hdpi/ic_rss.png?raw=true)
 # News Reader
 > Bring up the latest news from rss
 
@@ -41,4 +41,4 @@ targetSdkVersion 27
 
 
 ## Demo
-<img src="/Users/kimseongjin/Desktop/NewsReader/screenShots/demo.gif" width="230" />
+<img src="https://github.com/seongjinkime/NewsReader/blob/master/screenShots/demo.gif" width="230" />
